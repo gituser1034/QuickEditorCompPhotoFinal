@@ -1,0 +1,49 @@
+#:import Factory kivy.factory.Factory
+
+# All button properties
+<Button>
+    font_size:20
+    size_hint: (None, None)
+    width: 150
+    height: 45
+
+BoxLayout:
+    orientation: 'vertical'
+    spacing: 10
+    padding: 10
+
+    Image:
+        id: image
+        source: 'elephant_balloon.jpg'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+        spacing: 70
+
+        Button:
+            text: 'Back to Main Page'
+            on_release: app.root.current = 'home'
+
+        Button:
+            text: 'Exit'
+            on_press: app.stop()
+
+        Label:
+            size_hint: (None, None)
+            width: 30
+            height: 45
+            text: 'Enter image path:'
+            color: (0, 0, 0, 1)
+
+        TextInput:
+            size_hint: (None, None)
+            width: 150
+            height: 45
+            id: imagePath
+            multiline: False
+
+        Button:
+            text: 'Load Image'
+            on_release: root.loadImage()
